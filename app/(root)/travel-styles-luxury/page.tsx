@@ -1,0 +1,384 @@
+import React, { useEffect, useRef, useState } from 'react'
+import Breadcrumb from '@/components/comen/Breadcrumb'
+import Hero2 from '@/components/comen/hero/Hero2'
+import Section3 from '@/components/comen/section/Section3'
+import Title2 from '@/components/comen/title/Title2'
+import { Button } from '@/components/comen/button'
+import Card19Carousel1 from '@/components/comen/carousel/Card19Carousel1'
+import Card3Carousel3 from '@/components/comen/carousel/Card3Carousel3'
+import Card3Carousel1 from '@/components/comen/carousel/Card3Carousel1'
+import Card23 from '@/components/comen/card/Card23'
+import Section7 from '@/components/comen/section/Section7'
+import { TOUR_DATA } from '@/data/tours.data'
+import TourCardCarousel1 from '@/components/comen/carousel/TourCardCarousel1'
+import Card1Carousel1 from '@/components/comen/carousel/Card1Carousel1'
+import Section19 from '@/components/comen/section/Section19'
+
+export default function page() {
+
+    const card19Carousel1Data1 = [
+        {
+            image: "assets/images/travel-styles-luxury/what-to-expect-1.jpg",
+            title: "EXCLUSIVE",
+            subTitle: "Experiences",
+            description: "Luxury trips pack in more experiences than any other style, featuring included cultural and culinary activities. The pace is relaxed and refined-less rushing, more soaking it all in through immersive encounters that reveal authentic local traditions.",
+            classNameTitle: "",
+            classNameSubTitle: "",
+            classNameDescription: ""
+        },
+        {
+            image: "assets/images/travel-styles-luxury/what-to-expect-2.png",
+            title: "MORE",
+            subTitle: "Meals",
+            description: "With more meals included than any other style, pack your appetite for extraordinary culinary journeys. From intimate home-cooked feasts to exquisite multicourse gourmet dinners, luxury dining transforms every meal into unforgettable experiences.",
+            classNameTitle: "",
+            classNameSubTitle: "",
+            classNameDescription: ""
+        },
+        {
+            image: "assets/images/travel-styles-luxury/what-to-expect-3.jpg",
+            title: "RELAXED",
+            subTitle: "Starts",
+            description: "Enjoy leisurely mornings with Relaxed Start days, giving you extra time to sleep in or explore at your own pace. Every itinerary includes this feature, ensuring a stress free experience with flexibility to make the most of your journey",
+            classNameTitle: "",
+            classNameSubTitle: "",
+            classNameDescription: ""
+        },
+
+    ]
+
+    const card3Carousel3Data1 = [
+        {
+            type: "3",
+            image: "assets/images/travel-styles-luxury/where-you-stay-1.png",
+            title: "The Bellwood Manor",
+            title2: "Lake Gregory, Nuwara Eliya, Sri Lanka",
+            description: "This intimate eight room luxury hotel offers a personalised, indulgent experience with British colonial architecture, modern luxury, and Sri Lankan hospitality. In the heart of Nuwara Eliya, the century old building exudes English manor charm and offers modern travellers elegant boutique comforts. Stay here on",
+            link: "#",
+            linkText: "Essence of Sri Lanka.",
+            classNameTitle: "",
+            classNameDescription: "",
+            linkClassName: ""
+        },
+        {
+            type: "3",
+            image: "assets/images/travel-styles-luxury/where-you-stay-2.png",
+            title: "Oliphant Boutique Villa By Amaya",
+            title2: "Tea Estate, Nuwara Eliya, Sri Lanka",
+            description: "At this luxurious villa in a lush tea estate in Nuwara Eliya, cosy up to the misty mountains. This boutique sanctuary in Sri Lanka's highlands offers intimate luxury and pristine natural beauty in a tea country experience with free bikes, garden views, restaurant, 24 hour concierge service, and full day security. Stay here on",
+            link: "#",
+            linkText: "Essence of Sri Lanka.",
+            classNameTitle: "",
+            classNameDescription: "",
+            linkClassName: ""
+        },
+    ]
+
+    const card3Carousel1Data1 = [
+        {
+            type: "3",
+            image: "assets/images/travel-styles-luxury/gastronomic-variety-1.png",
+            title: "Goatfell",
+            title2: "Kandapola, Nuwara Eliya, Sri Lanka",
+            description: "Guests at Goatfell can enjoy authentic Sri Lankan food and international dishes on the garden terrace, which is a great place to eat. The cosy lounge has an open fireplace, which is great for relaxing with other travellers in the evening. Butlers who are dedicated to their work will be there for you the whole time. This high-end hotel in Nuwara Eliya's cool highlands offers great service and unforgettable meals. Experience on",
+            link: "#",
+            linkText: "Explore Ceylon.",
+            classNameTitle: "",
+            classNameDescription: "",
+            linkClassName: ""
+        },
+        {
+            type: "3",
+            image: "assets/images/travel-styles-luxury/gastronomic-variety-2.png",
+            title: "Kalkudah Beach House",
+            title2: "Galle, Sri Lanka",
+            description: "Kalkudah Beach House has amazing ocean to table dining experiences that show off the lively food of Sri Lanka's east coast. Local fishermen bring in fresh seafood every day, and they drop it off right in front of the hotel, Guests enjoy delicious crab and perfectly grilled reef fish, which are made with fresh, local ingredients and served with fresh salads and fragrant Sri Lankan curries. You can have a laid-back picnic on the beach or a fancy dinner by the pool with candles. Experience on",
+            link: "#",
+            linkText: "Classic Sri Lankan Delights.",
+            classNameTitle: "",
+            classNameDescription: "",
+            linkClassName: ""
+        },
+        {
+            type: "3",
+            image: "assets/images/travel-styles-luxury/gastronomic-variety-3.png",
+            title: "Leopard Trails Yala",
+            title2: "Yala, Sri Lanka",
+            description: "Leopard Trails Yala's premium dining celebrates authentic Sri Lankan cuisine in its purest form. Skilled chefs craft traditional curries and sambols using fresh curry leaves, coconut, and aromatic spices. Each meal becomes an artistic palette of flavours, perfectly balanced to complement the tropical climate. Experience unhurried, labour intensive preparation that creates extraordinary local dishes, bringing together centuries old culinary traditions in an intimate jungle setting. Experience on",
+            link: "#",
+            linkText: "Classic Sri Lankan Delights.",
+            classNameTitle: "",
+            classNameDescription: "",
+            linkClassName: ""
+        },
+        {
+            type: "3",
+            image: "assets/images/travel-styles-luxury/gastronomic-variety-2.png",
+            title: "Kalkudah Beach House",
+            title2: "Galle, Sri Lanka",
+            description: "Kalkudah Beach House has amazing ocean to table dining experiences that show off the lively food of Sri Lanka's east coast. Local fishermen bring in fresh seafood every day, and they drop it off right in front of the hotel, Guests enjoy delicious crab and perfectly grilled reef fish, which are made with fresh, local ingredients and served with fresh salads and fragrant Sri Lankan curries. You can have a laid-back picnic on the beach or a fancy dinner by the pool with candles. Experience on",
+            link: "#",
+            linkText: "Classic Sri Lankan Delights.",
+            classNameTitle: "",
+            classNameDescription: "",
+            linkClassName: ""
+        },
+    ]
+
+    const premiumTouring = [
+        {
+            image: "assets/images/sri-lanka/premium-touring-1.png",
+            title: "MAKE TRAVEL RESPONSIBLE ®",
+            description: "Connecting you with and supporting local communities.",
+            linkLabel: "Find out more",
+            linkHref: "#",
+        },
+        {
+            image: "assets/images/sri-lanka/premium-touring-2.png",
+            title: "BE MY GUEST",
+            description: "Dining is an experience on our tours, with great food at the heart of every journey.",
+            linkLabel: "Find out more",
+            linkHref: "#",
+        },
+        {
+            image: "assets/images/sri-lanka/premium-touring-3.png",
+            title: "PERSONALISE YOUR TOUR",
+            description: "Connecting you with and supporting local communities.",
+            linkLabel: "Find out more",
+            linkHref: "#",
+        },
+        {
+            image: "assets/images/sri-lanka/premium-touring-4.png",
+            title: "STAYS WITH TALES",
+            description: "Connecting you with and supporting local communities.",
+            linkLabel: "Find out more",
+            linkHref: "#",
+        },
+    ];
+
+    const tourCardCarousel1Data = TOUR_DATA;
+
+    const card1Carousel1Data = [
+        {
+            image: "assets/images/travel-styles-luxury/travel-styles-1.png",
+            title: "Signature",
+            description: "Explore travel’s softer side",
+            button: "Find Out More",
+            classNameTitle: "",
+            classNameDescription: "",
+            classNameButton: ""
+        },
+        {
+            image: "assets/images/travel-styles-luxury/travel-styles-2.png",
+            title: "Premium",
+            description: "The Original real life adventure",
+            button: "Find Out More",
+            classNameTitle: "",
+            classNameDescription: "",
+            classNameButton: ""
+        },
+        {
+            image: "assets/images/travel-styles-luxury/travel-styles-3.png",
+            title: "Comfort",
+            description: "Adventure awaits, just step outside",
+            button: "Find Out More",
+            classNameTitle: "",
+            classNameDescription: "",
+            classNameButton: ""
+        },
+        {
+            image: "assets/images/travel-styles-luxury/travel-styles-2.png",
+            title: "Premium",
+            description: "The Original real life adventure",
+            button: "Find Out More",
+            classNameTitle: "",
+            classNameDescription: "",
+            classNameButton: ""
+        },
+
+    ]
+
+    return (
+
+        <div className='w-full'>
+            {/* Bread crumb */}
+            <div className='w-full py-2'>
+                <Breadcrumb items={[
+                    { label: "Home", href: "/" },
+                    { label: "Ways To Travel", href: "/" },
+                    { label: "Luxury" },
+                ]} />
+            </div>
+
+            {/* hero 2 */}
+            <div className='mx-auto w-full'>
+                <Hero2
+                    image="assets/images/travel-styles-luxury/hero.png"
+                    title="Luxury"
+                    description="For travellers seeking experiences you can't get anywhere else"
+                    type={1}
+                    button=""
+                    buttonLink=""
+                    imageClassName=""
+                    titleClassName=""
+                    descriptionClassName="lg:!text-[24px] md:!text-[20px] !text-[16px] !font-semibold font-figtree "
+                />
+            </div>
+
+            {/* Connect with locals */}
+            <div className='w-full mt-12'>
+                <Section3
+                    title="Unforgettable, private, truly extraordinary"
+                    description1=""
+                    description2={`Experience through the extraordinary. Our exclusive luxurious trips offer unique cultural experiences that go beyond regular travel. Travel in private, first-class transport to carefully chosen Feature Stays, such as historic mansions in Nuwara Eliya's misty hills, secluded jungle eco lodges, and charming boutique high-end retreats. Every moment is carefully planned to give you real experiences that change how you see the world. The memories you'll always treasure are what real luxury is.`}
+                    button=""
+                    buttonLink=""
+                    titleClassName=""
+                    description1ClassName=""
+                    description2ClassName=""
+                    buttonClassName=""
+                    sizeClassName=""
+                />
+            </div>
+
+            <div className='my-container mt-12'>
+                <div className='w-full grid grid-cols-1 md:grid-cols-2 items-center'>
+                    <div className='order-2 md:order-1 w-full lg:pr-24 md:pr-12 pr-0 md:mt-0 mt-8'>
+                        <div className='w-full'>
+                            <Title2 title="What is Luxury travel" className='text-center'></Title2>
+
+                            <div className=''>
+                                <p
+                                    className={`mt-2 description-2 !font-normal whitespace-pre-line text-center`}
+                                    dangerouslySetInnerHTML={{
+                                        __html:
+                                            "Luxury trips are the best kind of travel because every detail is carefully planned to go above and beyond what you expect. These amazing trips include stays in Ultimate Luxury boutique hotels that are the height of style and class, offering personalised service that makes you feel like royalty. With handpicked high-end properties and exclusive amenities, each carefully chosen destination offers the best in comfort and charm, making for immersive getaways that are much more than just regular travel. What sets them apart is the inclusion of more meals, experienced local leaders and access to unique experiences that you can't find anywhere else."
+                                    }}
+                                ></p>
+                            </div>
+
+                            <div className='w-full flex justify-center mt-4'>
+                                <Button variant="default" size={"lg"} className="font-bold" >Find Your Trip</Button>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div className='w-full order-1 md:order-2'>
+                        <img src="assets/images/travel-styles-luxury/luxury-travel.png" alt="" className='w-full aspect-video object-cover rounded-md' />
+                    </div>
+                </div>
+            </div>
+
+            {/* Our exceptional standards */}
+            <div className='my-container mt-12'>
+                <Card19Carousel1
+                    cards={card19Carousel1Data1}
+                    title="What to expect"
+                    description=""
+                    size0={1}
+                    size768={2}
+                    size1024={3}
+                    size1280={3}
+                    minSize={3}
+                    classNameTitle=""
+                    classNameDescription=""
+                />
+            </div>
+
+            <div className='w-full mt-12'>
+                <Card3Carousel3
+                    cards={card3Carousel3Data1}
+                    title="Where you'll stay"
+                    description="Your stay in carefully chosen Ultimate Luxury boutique properties keeps you deeply connected to the local culture and community. These luxury hotels combine high-end amenities with real charm, Feature Stays, on the other hand, create unique experiences that help local communities. Each property has its own story to tell, which makes for immersive escapes that are more than just regular luxury travel."
+                    bgColor1="bg-[#E4EAF6]"
+                    classNameTitle=""
+                    classNameDescription=""
+                    size0={1}
+                    size768={2}
+                    size1024={2}
+                    size1280={2}
+                    minSize={2}
+                />
+
+                <div className='my-container flex items-center justify-center mt-4'>
+                    <Button variant="default" size={"lg"} className={`font-bold`} >See More Stays with Tales</Button>
+                </div>
+            </div>
+
+            <div className='my-container mt-12'>
+                <Card3Carousel1
+                    cards={card3Carousel1Data1}
+                    title="Gastronomic variety"
+                    description="Your luxury stays show off amazing culinary traditions through award winning chefs who make amazing meals just for you. Imagine classic spiced dishes full of local flavours and modern fusion cuisine that is always changing, all made with the best seasonal ingredients in stunning settings."
+                    size0={1}
+                    size768={2}
+                    size1024={3}
+                    size1280={3}
+                    minSize={3}
+                    classNameTitle=""
+                    classNameDescription=""
+                />
+            </div>
+
+            {/* testimonial 1 */}
+            <div className='w-full mt-12 bg-[#EBE7EB] py-12'>
+                <div className='my-container'>
+                    <Card23
+                        image="assets/images/travel-styles-luxury/testimonial-1.png"
+                        title="“We felt grateful”"
+                        feedback="We actually lived like locals, tasted authentic curries, and learned about their traditions. Travel opens your eyes to new ways of life. We enjoyed every moment with our group exploring temples and beaches and returned home with precious memories of this incredible journey."
+                        feedbackAuthor="Jacob T"
+                        city="Serendib"
+                        classNameTitle=""
+                        classNameFeedback=""
+                    />
+                </div>
+            </div>
+
+            <div className='mt-12 my-container'>
+                <Section7
+                    data={premiumTouring}
+                    title="Welcome to Luxury Touring"
+                    description=""
+                    bgColor=""
+                    classNameTitle=""
+                    classNameDescription=""
+                />
+            </div>
+
+            <div className='w-full mt-12'>
+                <div className='my-container'>
+                    <TourCardCarousel1
+                        data={tourCardCarousel1Data}
+                        title="Top Luxury Tours"
+                        description=""
+                        button="See More Trips"
+                        classNameButton=""
+                        classNameTitle=""
+                        classNameDescription="!text-sm"
+                    />
+                </div>
+            </div>
+
+            {/* More one-of-a kind experiences */}
+            <div className='w-full mt-12'>
+                <Card1Carousel1
+                    cards={card1Carousel1Data}
+                    title="Explore other  travel styles"
+                    description=""
+                    bgColor1="bg-[#0b5d56]"
+                    bgColor2="bg-bggray4"
+                    classNameTitle=""
+                    classNameDescription=""
+                />
+            </div>
+
+            <div className='w-full mt-12'>
+                <Section19 />
+            </div>
+
+        </div>
+
+    )
+}
