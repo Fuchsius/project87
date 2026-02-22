@@ -9,7 +9,7 @@ export const Cities = [
         slug: "colombo",
         countryId: countries[0],
         hero: {
-            image: "/assets/images/sri_lanka/Colombo/hero.avif",
+            image: "/assets/images/sri_lanka/Colombo/COLOMBO - Hero TGT 2",
             title: "The pulse of Ceylon",
             subTitle: "Colombo",
             rating: 4.9,
